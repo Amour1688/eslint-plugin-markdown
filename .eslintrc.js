@@ -18,6 +18,10 @@ module.exports = {
         PACKAGE_NAME
     ],
 
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+
     "env": {
         "node": true
     },

@@ -20,6 +20,13 @@ function initCLI(isAutofixEnabled) {
     const cli = new CLIEngine({
         envs: ["browser"],
         extensions: ["md", "mkdn", "mdown", "markdown"],
+        plugins: ["markdown"],
+        overrides: [
+            {
+                files: ["*.md", "*.mkdn", "*.mdown", "*.markdown"],
+                processor: ["markdown"]
+            }
+        ],
         fix,
         ignore: false,
         rules: {
@@ -49,8 +56,9 @@ describe("plugin", () => {
         cli = initCLI();
     });
 
-    it("should run on .md files", () => {
+    it.only("should run on .md files", () => {
         const report = cli.executeOnText(shortText, "test.md");
+        console.log(report.results);
 
         assert.strictEqual(report.results.length, 1);
         assert.strictEqual(report.results[0].messages.length, 1);

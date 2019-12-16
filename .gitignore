@@ -1,5 +1,6 @@
 .DS_Store
+.eslint-release-info.json
+.nyc_output/
 coverage/
 node_modules/
 npm-debug.log
-.eslint-release-info.json
